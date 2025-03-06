@@ -8,11 +8,9 @@ This project predicts the number of medals a country will win in the Olympics ba
 1. [Project Overview](#project-overview)
 2. [Dataset](#dataset)
 3. [Setup Instructions](#setup-instructions)
-4. [Project Structure](#project-structure)
-5. [Running the Project](#running-the-project)
-6. [Results](#results)
-7. [Dependencies](#dependencies)
-8. [License](#license)
+4. [Running the Project](#running-the-project)
+5. [Results](#results)
+6. [Dependencies](#dependencies)
 
 ---
 
@@ -55,23 +53,6 @@ The dataset is available on [Kaggle](https://www.kaggle.com/heesoo37/120-years-o
    ```bash
    pip install -r requirements.txt
    ```
-
----
-
-## Project Structure
-
-The project is organized as follows:
-```
-olympic-medals-prediction/
-├── data/                   # Contains the dataset files
-│   ├── teams.csv           # Team-level dataset
-│   └── athlete_events.csv  # Athlete-level dataset
-├── notebooks/              # Jupyter notebooks for the project
-│   └── olympic_medals_prediction.ipynb  # Combined notebook for data prep and ML
-├── README.md               # Project overview
-├── requirements.txt        # List of dependencies
-└── LICENSE                 # License file (optional)
-```
 
 ---
 
