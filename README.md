@@ -1,6 +1,8 @@
 # Olympic Medals Prediction
 
-This project predicts the number of medals a country will win in the Olympics based on historical data. It uses machine learning techniques to analyze features such as the number of athletes, previous medals, and age of participants to make predictions.
+This project predicts the number of medals a country will win in the Olympics based on historical data. It uses machine learning techniques to analyze features such as the number of athletes, previous medals, and age of participants to make predictions. Additionally, it includes two new predictions:
+1. **Medal Type Prediction**: Predicts the type of medal (Gold, Silver, Bronze) an athlete might win.
+2. **Medal Win Prediction**: Predicts whether an athlete will win any medal (Gold, Silver, or Bronze).
 
 ---
 
@@ -11,16 +13,21 @@ This project predicts the number of medals a country will win in the Olympics ba
 4. [Running the Project](#running-the-project)
 5. [Results](#results)
 6. [Dependencies](#dependencies)
+7. [Acknowledgments](#acknowledgments)
 
 ---
 
 ## Project Overview
 
-The goal of this project is to predict the number of medals a country will win in the Olympics using historical data. The project follows a standard machine learning workflow:
+The goal of this project is to predict Olympic medal outcomes using historical data. The project follows a standard machine learning workflow:
+
 1. **Data Preparation**: The raw athlete-level data is processed to create a team-level dataset.
 2. **Exploratory Data Analysis (EDA)**: The dataset is explored to understand relationships between features and the target variable.
-3. **Model Training**: A linear regression model is trained to predict the number of medals.
-4. **Model Evaluation**: The model's performance is evaluated using mean absolute error (MAE).
+3. **Model Training**:
+   - A **linear regression model** is trained to predict the number of medals a country will win.
+   - A **Random Forest Classifier** is trained to predict the type of medal (Gold, Silver, Bronze).
+   - A **Random Forest Classifier** is trained to predict whether an athlete will win any medal.
+4. **Model Evaluation**: The models' performance is evaluated using metrics like **Mean Absolute Error (MAE)**, **accuracy**, **ROC-AUC**, and **F1-score**.
 
 ---
 
@@ -58,18 +65,30 @@ The dataset is available on [Kaggle](https://www.kaggle.com/heesoo37/120-years-o
 
 ## Running the Project
 
-The project is implemented in a single Jupyter notebook: **`olympic_medals_prediction.ipynb`**. The notebook is divided into two main sections:
+The project is implemented in a single Jupyter notebook: **`olympic_medals_prediction.ipynb`**. The notebook is divided into three main sections:
 
-### 1. Data Preparation
+### 1. **Data Preparation**
 - Load the raw athlete-level data (`athlete_events.csv`).
 - Aggregate the data to create a team-level dataset (`teams.csv`).
 - Handle missing values and clean the data.
 
-### 2. Machine Learning Model
+### 2. **Medal Count Prediction**
 - Perform exploratory data analysis (EDA) to understand the dataset.
 - Split the data into training and testing sets.
-- Train a linear regression model to predict the number of medals.
-- Evaluate the model's performance using mean absolute error (MAE).
+- Train a **linear regression model** to predict the number of medals.
+- Evaluate the model's performance using **Mean Absolute Error (MAE)**.
+
+### 3. **Medal Type Prediction**
+- Create a target column (`medal_type`) to classify medals as Gold, Silver, or Bronze.
+- Encode categorical features using `LabelEncoder`.
+- Train a **Random Forest Classifier** to predict the medal type.
+- Evaluate the model using **accuracy** and a **classification report**.
+
+### 4. **Medal Win Prediction**
+- Create a binary target column (`won_medal`) to classify whether an athlete will win any medal.
+- Encode categorical features using `LabelEncoder`.
+- Train a **Random Forest Classifier** to predict medal wins.
+- Evaluate the model using **ROC-AUC**, **precision**, **recall**, and **F1-score**.
 
 To run the notebook:
 1. Open the notebook in Jupyter:
@@ -82,15 +101,17 @@ To run the notebook:
 
 ## Results
 
-The model predicts the number of medals using features like `athletes` and `prev_medals`. The performance is evaluated using **Mean Absolute Error (MAE)**. Key findings include:
-- The model achieves an MAE of `X` (replace with your actual error value).
+### Medal Count Prediction
+- The model achieves an **MAE of X** (replace with your actual error value).
 - The error ratio varies by team, with some teams having more accurate predictions than others.
 
-### Example Predictions
-- **USA**: Predicted `X` medals, actual `Y` medals.
-- **IND**: Predicted `X` medals, actual `Y` medals.
+### Medal Type Prediction
+- The model achieves an **accuracy of 63.17%**.
+- The classification report shows precision, recall, and F1-score for each medal type.
 
-For more details, refer to the `olympic_medals_prediction.ipynb` notebook.
+### Medal Win Prediction
+- The model achieves an **ROC-AUC score of 0.72**.
+- The classification report shows precision, recall, and F1-score for both classes (`0` and `1`).
 
 ---
 
