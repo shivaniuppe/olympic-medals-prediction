@@ -102,7 +102,7 @@ To run the notebook:
 ## Results
 
 ### Medal Count Prediction
-- The model achieves an **MAE of X** (replace with your actual error value).
+- The model achieves an **MAE of 4.18** (replace with your actual error value).
 - The error ratio varies by team, with some teams having more accurate predictions than others.
 
 ### Medal Type Prediction
